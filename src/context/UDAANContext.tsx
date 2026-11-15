@@ -91,64 +91,68 @@ interface UDAANContextType {
 const UDAANContext = createContext<UDAANContextType | undefined>(undefined);
 
 export const UDAANProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cases, setCases] = useState<AssistanceCase[]>(() => {
-    const saved = localStorage.getItem('udaan_cases');
-    return saved ? JSON.parse(saved) : INITIAL_CASES;
-  });
+  const safeParse = <T,>(key: string, fallback: T): T => {
+    try {
+      const saved = localStorage.getItem(key);
+      if (!saved) return fallback;
+      const parsed = JSON.parse(saved);
+      return parsed ?? fallback;
+    } catch {
+      return fallback;
+    }
+  };
 
-  const [resources, setResources] = useState<ResourceItem[]>(() => {
-    const saved = localStorage.getItem('udaan_resources');
-    return saved ? JSON.parse(saved) : INITIAL_RESOURCES;
-  });
+  const [cases, setCases] = useState<AssistanceCase[]>(() =>
+    safeParse('udaan_v2_cases', INITIAL_CASES)
+  );
 
-  const [organisations, setOrganisations] = useState<Organisation[]>(() => {
-    const saved = localStorage.getItem('udaan_organisations');
-    return saved ? JSON.parse(saved) : INITIAL_ORGANISATIONS;
-  });
+  const [resources, setResources] = useState<ResourceItem[]>(() =>
+    safeParse('udaan_v2_resources', INITIAL_RESOURCES)
+  );
 
-  const [volunteers, setVolunteers] = useState<Volunteer[]>(() => {
-    const saved = localStorage.getItem('udaan_volunteers');
-    return saved ? JSON.parse(saved) : INITIAL_VOLUNTEERS;
-  });
+  const [organisations, setOrganisations] = useState<Organisation[]>(() =>
+    safeParse('udaan_v2_organisations', INITIAL_ORGANISATIONS)
+  );
 
-  const [volunteerTasks, setVolunteerTasks] = useState<VolunteerTask[]>(() => {
-    const saved = localStorage.getItem('udaan_volunteer_tasks');
-    return saved ? JSON.parse(saved) : INITIAL_VOLUNTEER_TASKS;
-  });
+  const [volunteers, setVolunteers] = useState<Volunteer[]>(() =>
+    safeParse('udaan_v2_volunteers', INITIAL_VOLUNTEERS)
+  );
 
-  const [rehabPlans, setRehabPlans] = useState<RehabilitationPlan[]>(() => {
-    const saved = localStorage.getItem('udaan_rehab_plans');
-    return saved ? JSON.parse(saved) : INITIAL_REHAB_PLANS;
-  });
+  const [volunteerTasks, setVolunteerTasks] = useState<VolunteerTask[]>(() =>
+    safeParse('udaan_v2_volunteer_tasks', INITIAL_VOLUNTEER_TASKS)
+  );
 
-  const [cityZones, setCityZones] = useState<CityZoneMetrics[]>(() => {
-    const saved = localStorage.getItem('udaan_city_zones');
-    return saved ? JSON.parse(saved) : BENGALURU_ZONES;
-  });
+  const [rehabPlans, setRehabPlans] = useState<RehabilitationPlan[]>(() =>
+    safeParse('udaan_v2_rehab_plans', INITIAL_REHAB_PLANS)
+  );
+
+  const [cityZones, setCityZones] = useState<CityZoneMetrics[]>(() =>
+    safeParse('udaan_v2_city_zones', BENGALURU_ZONES)
+  );
 
   const [demoMode, setDemoMode] = useState<boolean>(true);
   const [guidedDemoActive, setGuidedDemoActive] = useState<boolean>(false);
   const [activeDemoStep, setActiveDemoStep] = useState<number>(1);
 
-  // Sync state to localStorage
+  // Sync state to localStorage safely
   useEffect(() => {
-    localStorage.setItem('udaan_cases', JSON.stringify(cases));
+    try { localStorage.setItem('udaan_v2_cases', JSON.stringify(cases)); } catch {}
   }, [cases]);
 
   useEffect(() => {
-    localStorage.setItem('udaan_resources', JSON.stringify(resources));
+    try { localStorage.setItem('udaan_v2_resources', JSON.stringify(resources)); } catch {}
   }, [resources]);
 
   useEffect(() => {
-    localStorage.setItem('udaan_organisations', JSON.stringify(organisations));
+    try { localStorage.setItem('udaan_v2_organisations', JSON.stringify(organisations)); } catch {}
   }, [organisations]);
 
   useEffect(() => {
-    localStorage.setItem('udaan_volunteer_tasks', JSON.stringify(volunteerTasks));
+    try { localStorage.setItem('udaan_v2_volunteer_tasks', JSON.stringify(volunteerTasks)); } catch {}
   }, [volunteerTasks]);
 
   useEffect(() => {
-    localStorage.setItem('udaan_rehab_plans', JSON.stringify(rehabPlans));
+    try { localStorage.setItem('udaan_v2_rehab_plans', JSON.stringify(rehabPlans)); } catch {}
   }, [rehabPlans]);
 
   const getCaseById = (caseId: string): AssistanceCase | undefined => {
@@ -725,12 +729,10 @@ export const UDAANProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setVolunteerTasks(INITIAL_VOLUNTEER_TASKS);
     setRehabPlans(INITIAL_REHAB_PLANS);
     setCityZones(BENGALURU_ZONES);
-    localStorage.removeItem('udaan_cases');
-    localStorage.removeItem('udaan_resources');
-    localStorage.removeItem('udaan_organisations');
-    localStorage.removeItem('udaan_volunteer_tasks');
-    localStorage.removeItem('udaan_rehab_plans');
-    localStorage.removeItem('udaan_city_zones');
+    ['cases', 'resources', 'organisations', 'volunteers', 'volunteer_tasks', 'rehab_plans', 'city_zones'].forEach(k => {
+      localStorage.removeItem(`udaan_${k}`);
+      localStorage.removeItem(`udaan_v2_${k}`);
+    });
   };
 
   const nextDemoStep = () => setActiveDemoStep(prev => Math.min(prev + 1, 8));
