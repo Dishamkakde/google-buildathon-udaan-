@@ -4,8 +4,7 @@ node_modules/
 .pnp.js
 
 # Production build outputs
-dist/
-build/
+# dist/ and assets/ are tracked so live preview links like githack and GitHub Pages work out-of-the-box
 
 # Environment variables & secrets
 .env
