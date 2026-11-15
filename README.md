@@ -11,128 +11,132 @@
 
 ## 🌟 Executive Summary
 
-**UDAAN** is an intelligent humanitarian infrastructure platform designed to protect and support homeless people, abandoned elderly individuals, vulnerable children, and indigent populations lacking access to basic life essentials.
+**UDAAN** is an intelligent humanitarian infrastructure platform designed to connect homeless people, abandoned elderly individuals, vulnerable children, and indigent populations lacking access to basic life essentials with verified food, emergency shelter, healthcare, legal identity, and long-term rehabilitation.
 
-Unlike ordinary NGO directories or donation websites, UDAAN functions as an **operational coordination engine**. It pairs a macro-level **Humanitarian Digital Twin** (monitoring citywide resource deficits and shelter capacity) with a micro-level **AI Assistance Coordinator** (orchestrating 8 specialized domain agents to match needs, coordinate referrals, and guide 6-stage long-term rehabilitation).
-
----
-
-## 🚀 Key Innovations & Core Systems
-
-### 1. System A: Humanitarian Digital Twin (Macro Intelligence)
-* **Citywide Geospatial Telemetry:** Interactive Leaflet/Carto map covering 8 focal sectors in Bengaluru (Majestic/KSR Station, Kalasipalya/KR Market, Shivajinagar, Yeshwanthpur, Koramangala, Peenya, Whitefield, Malleshwaram).
-* **Demand vs. Supply Analytics:** Real-time visual comparison of shelter bed deficits and meal portions.
-* **Scenario Simulator:** Empowers municipal administrators to test resource hypotheses (e.g. *"What happens if an additional 100 shelter beds become available?"*) with algorithmic impact forecasting.
-
-### 2. System B: AI Assistance Coordinator (8 Specialized Agents)
-* **Agent 1 (Need Assessment):** Multilingual extraction (Kannada, Hindi, English) of structured needs and urgency levels.
-* **Agent 2 (Food Assistance):** Matches active community kitchens and mobile distribution points.
-* **Agent 3 (Shelter Coordination):** Verifies bed availability and geriatric/mobility accessibility.
-* **Agent 4 (Healthcare Coordination):** Directs to charitable hospital OPDs and wound dressing desks without diagnosing or prescribing.
-* **Agent 5 (Documentation Assistance):** Coordinates address-less Aadhaar and pension enrolment.
-* **Agent 6 (Rehabilitation Agent):** Synthesizes long-term social reintegration pathways.
-* **Agent 7 (Follow-up Agent):** Enforces time-bound verification gates and monitors overdue check-ins.
-* **Agent 8 (Orchestrator Agent):** Consolidates multi-domain findings into a unified plan and gates execution behind human sign-off.
-
-### 3. Zero-Barrier Beneficiary Assistance Portal
-* **Multilingual Voice Intake:** Web Speech recognition and text-to-speech feedback in Kannada, Hindi, and English.
-* **No Mandatory ID Requirement:** Emergency food and shelter are accessible without requiring a smartphone, email address, Aadhaar, or identity document.
-* **Volunteer Mode:** Authorized field volunteers can submit requests on behalf of vulnerable individuals found on the streets.
-
-### 4. Smart Resource Matching Engine
-* Proximity scoring via the Haversine formula combined with capacity verification, operating hours, and specialized accessibility features (wheelchair ramps, elderly handrails).
-
-### 5. Rehabilitation & Independence Engine (Section 13)
-* Tracks tangible humanitarian outcomes across a **6-Stage Longitudinal Journey**:
-  1. *Immediate Safety & Crisis Stabilization*
-  2. *Shelter & Essential Daily Needs*
-  3. *Healthcare & Documentation Assistance (Aadhaar & Old Age Pension)*
-  4. *Education, Skills & Psycho-social Wellbeing*
-  5. *Livelihood & Assisted Living Placement*
-  6. *Independent Living & Longitudinal Follow-up*
-
-### 6. Interactive 8-Step Guided Demo Walkthrough
-* A single click on **"Interactive Demo (8-Steps)"** walks evaluators step-by-step through a complete end-to-end case:
-  1. *Volunteer reports elderly homeless individual (Ramesh Rao, 68, Majestic Station, leg wound)*
-  2. *Multilingual AI extraction in Kannada and English*
-  3. *5 domain agents formulate recommendations in parallel*
-  4. *Smart proximity matching with Samarthanam Elder Shelter & Bowring Hospital*
-  5. *Mandatory human approval gate (Social Worker Kavitha Ramesh)*
-  6. *Referrals dispatched via partner web push*
-  7. *Ground execution verified (hot meal delivered, wound dressed)*
-  8. *Long-term rehabilitation pathway initiated with pension assistance*
+Unlike ordinary NGO directories or donation websites, UDAAN functions as an **operational coordination engine**. It pairs a macro-level **Humanitarian Digital Twin** (monitoring citywide resource deficits and shelter capacity) with an agentic **AI Assistance Coordinator** (matching needs, orchestrating referrals, and guiding long-term rehabilitation).
 
 ---
 
-## 🗺️ Complete Route Manifest (All 19 Routes Implemented)
+## 🚀 The 6 Core Competition Features
 
-| Route | View | Description |
+### 1. FEATURE 1: AI-Powered Need Assessment
+* **Conversational AI Assistant:** Multilingual natural language dialogue in **English**, **Kannada (ಕನ್ನಡ)**, and **Hindi (हिंदी)**.
+* **Voice & Text Input:** Real-time Web Speech recognition API with audio fallback.
+* **Structured Extraction:** Automatically parses primary needs (`food_water`, `emergency_shelter`, `medical_support`, `identity_docs`, etc.), urgency level (`critical`, `high`, `medium`, `low`), location/landmark, headcount, and vulnerability factors.
+* **Review & Submit Card:** Beneficiaries and caseworkers can review, edit, and confirm details before submission. Generates a unique Case ID (e.g., `CASE-2026-0891`).
+
+### 2. FEATURE 2: Smart Resource Matching
+* **Verified Provider Database:** Catalogs verified NGOs, shelters, community kitchens, and hospitals across Bengaluru.
+* **Multi-Factor Matching Engine:** Matches based on required service category, geographic proximity (Haversine formula), verified available capacity, and urgency.
+* **Explanations:** Displays the rationale behind every recommended provider (distance, bed capacity, specialization).
+* **5-Stage Referral Tracking:** Tracks referrals through `Pending` -> `Accepted` -> `In Progress` -> `Completed` (or `Rejected` with mandatory explanation).
+
+### 3. FEATURE 3: Humanitarian Digital Twin
+* **Bengaluru Geospatial Map:** Interactive city map displaying humanitarian demand hotspots and verified support centres across 8 Bengaluru zones.
+* **Category Filters:** Live filters for Food, Shelter, Healthcare, Documentation, and Area Shortages.
+* **Demand vs. Capacity Analytics:** Real-time visual comparison of shelter bed deficits and meal portions.
+* **What-If Scenario Simulation:** Simulates impact scenarios, such as *"What happens if shelter demand increases by 30%?"*, recalculating area-wise resource gaps.
+* **DEMO DATA Badges:** All simulated city data is visibly labeled as **DEMO DATA**.
+
+### 4. FEATURE 4: Referral and Case Tracking
+* **Unique Case IDs:** Systematic tracking via `CASE-2026-XXXX`.
+* **Centralized Case Management:** Searchable dashboard with status and urgency filters.
+* **6-Stage Standard Case Lifecycle:**
+  1. `Submitted`
+  2. `Under Review`
+  3. `Matched`
+  4. `Referral Initiated`
+  5. `Assistance In Progress`
+  6. `Completed`
+* **Human Approval Gate:** Coordinators authorize sensitive referrals prior to dispatch.
+* **Activity Audit Trail:** Chronological timeline of updates, notes, and caseworker actions.
+* **Beneficiary Case Tracker:** Beneficiaries can track case status in real time using their Case ID.
+
+### 5. FEATURE 5: Rehabilitation Pathway Engine
+* **5-Stage Longitudinal Journey Tracker:**
+  - **Stage 1: Immediate Relief** — Food, emergency shelter, and essential medical care.
+  - **Stage 2: Stabilisation** — Identity document restoration (Aadhaar), welfare enrollment, and continued support.
+  - **Stage 3: Skill Development** — Vocational training, adult education, and skill-building programs.
+  - **Stage 4: Employment** — Livelihood preparation, job opportunities, and partner connections.
+  - **Stage 5: Independent Living** — Permanent housing support and longitudinal caseworker follow-up.
+* **Caseworker Milestones:** Caseworkers can check off milestones and record observational progress notes.
+
+### 6. FEATURE 6: Role-Based Dashboards
+Four distinct role experiences with 1-click instant switching:
+* **A. Beneficiary Dashboard (`/dashboard/beneficiary`):** Conversational AI intake, live Case Tracker, matched services, and rehabilitation journey.
+* **B. NGO Dashboard (`/dashboard/ngo`):** Manage organization profile & capacity, view incoming referrals, **Accept / Reject referrals with mandatory reason**, and update assistance progress.
+* **C. Field Volunteer Dashboard (`/dashboard/volunteer`):** View assigned missions, accept/start/complete tasks, submit completion notes, and report persons in need.
+* **D. Administrator Dashboard (`/dashboard/admin`):** Platform KPIs, NGO verification queue, user role management, Digital Twin map, and What-If scenario simulation.
+
+---
+
+## 🗺️ Complete Website Routes
+
+| Route | Role / Purpose | Description |
 |---|---|---|
-| `/` | Public Landing Page | Premium humanitarian hero, impact metrics, 6-step protocol, modules |
-| `/about` | Our Mission | Dignity-first philosophy, ethics pledge, zero-barrier guarantee |
-| `/how-it-works` | How UDAAN Works | Architecture diagram of System A (Twin) & System B (Coordinator) |
-| `/get-help` | Beneficiary Portal | Accessible voice-assisted and guided help request interface |
-| `/report-need` | Citizen & Volunteer Report | Report an unsheltered person or vulnerable child in distress |
-| `/find-resources` | Verified Directory | Searchable database of shelters, food points, and clinics |
-| `/volunteer` | Volunteer Network | Responder registration, task verification, code of conduct |
-| `/partner-with-us` | NGO Institutional Portal | Onboard shelters and kitchens with registration verification |
-| `/login` | Staff & Partner Login | 1-click role logins for Admin, Social Worker, Volunteer, NGO |
-| `/register` | Registration Page | Sign up for role-based responder accounts |
-| `/dashboard` | Command Overview | Operations command center, priority triage queue, KPIs |
-| `/dashboard/city-intelligence` | Digital Twin (System A) | Interactive geospatial map, demand vs supply, scenario simulator |
-| `/dashboard/assistance-cases` | Assistance Cases | Active cases, audit logs, referral dispatch, human sign-off |
-| `/dashboard/ai-coordinator` | AI Coordinator (System B) | The 8-agent system, live test prompt, JSON telemetry |
-| `/dashboard/resources` | Resource Network | Facility capacity management, edit available beds & meals |
-| `/dashboard/organisations` | Partner Organisations | Verified partner audit list, ratings, contact desk |
-| `/dashboard/rehabilitation` | Rehabilitation Engine | 6-stage journey timeline, milestone tracking, outcome metrics |
-| `/dashboard/analytics` | Analytics Command Hub | Interactive Recharts analytics, shortage breakdown, resolution curves |
-| `/dashboard/settings` | System Settings | Gemini API key configuration, audit logs export, demo reset |
+| `/` | Public | Homepage with hero, impact metrics, 6-step coordination, and core modules |
+| `/about` | Public | Mission, ethical principles, and zero-barrier guarantee |
+| `/how-it-works` | Public | Visual workflow of Humanitarian Digital Twin & AI Coordinator |
+| `/get-help` | Public & Beneficiary | Voice/text conversational AI intake, Case Tracker widget, and emergency form |
+| `/report-need` | Citizen & Volunteer | Report an unsheltered individual or vulnerable child in distress |
+| `/find-resources` | Public | Searchable directory of verified shelters, food points, and clinics |
+| `/volunteer` | Volunteers | Volunteer registration, guidelines, and code of conduct |
+| `/partner-with-us` | NGOs & Institutions | Onboard verified shelters, kitchens, and clinics |
+| `/login` | Authentication | 1-click role logins for all 4 primary roles |
+| `/register` | Authentication | Account registration |
+| `/dashboard` | Operations Hub | Command Overview with instant 4-role switcher ribbon |
+| `/dashboard/beneficiary` | Role A | Dedicated Beneficiary Portal |
+| `/dashboard/ngo` | Role B | Dedicated NGO Partner Command Hub |
+| `/dashboard/volunteer` | Role C | Dedicated Field Volunteer Dispatch Hub |
+| `/dashboard/admin` | Role D | Dedicated Administrator Command Center |
+| `/dashboard/city-intelligence` | System A | Humanitarian Digital Twin map, demand vs supply, scenario simulator |
+| `/dashboard/assistance-cases` | Feature 4 | Centralized case queue, human review approvals, audit timeline |
+| `/dashboard/ai-coordinator` | AI Multi-Agent | Agent telemetry, prompt testing, and structured outputs |
+| `/dashboard/resources` | Feature 2 | Resource capacity editor, available beds and meal portions |
+| `/dashboard/organisations` | Network | Verified partner list, verification workflow, ratings |
+| `/dashboard/rehabilitation` | Feature 5 | 5-stage rehabilitation journey, milestone checklist, caseworker notes |
+| `/dashboard/analytics` | Analytics | Citywide analytics, shortage breakdowns, and resolution curves |
+| `/dashboard/settings` | Settings | Platform configuration, API keys, and demo data reset |
 
 ---
 
-## 🛠️ Technology Stack
+## 💻 Tech Stack
 
 * **Frontend:** React 18, TypeScript 5.7, Vite 6, Tailwind CSS 3.4
-* **Icons & Visuals:** Lucide React, Leaflet Maps with CartoDB Positron Cartography
-* **Data Visualizations:** Recharts (BarChart, LineChart, PieChart)
+* **Map & Geospatial:** Leaflet Maps with CartoDB Positron Cartography
+* **Icons:** Lucide React
 * **Backend:** Python 3.12, FastAPI, Pydantic v2, Uvicorn
-* **AI & NLP:** Google Gemini 1.5 Flash structured function calling with offline fallback
-* **Voice Support:** Web Speech Recognition API & SpeechSynthesisUtterance
+* **AI & NLP:** Google Gemini structured extraction API with offline simulated fallback
+* **Voice:** Web Speech Recognition API & SpeechSynthesis
 
 ---
 
-## 💻 Quick Start & Running Locally
+## ⚡ Quick Start
 
-### 1. Frontend Setup
+### 1. Frontend Web Portal
 ```bash
 # Install dependencies
 npm install
 
-# Run Vite development server
+# Start Vite development server
 npm run dev
 # -> Opens http://localhost:5173
-
-# Run production build & preview
-npm run build
-npm run preview
 ```
 
-### 2. Backend Setup (FastAPI Python Service)
+### 2. Backend API Service (FastAPI)
 ```bash
-# Run the FastAPI server directly with Python
+# Start FastAPI backend
 python server/main.py
 # -> Runs at http://localhost:8000
-# -> Interactive Swagger OpenAPI docs at http://localhost:8000/docs
+# -> Interactive Swagger documentation at http://localhost:8000/docs
 ```
 
 ---
 
 ## 🛡️ Ethical Guardrails & Safeguards
 
-* **No Automated Denial:** AI cannot reject an assistance request. Rejections can only be made by human organizations with documented explanations.
+* **No Automated Denial:** AI cannot reject an assistance request. Rejections can only be made by human organizations with mandatory documented explanations.
 * **Zero Medical Diagnosis:** Clinical evaluation is exclusively handled by licensed medical practitioners at registered partner clinics.
-* **Prohibition of Biometrics:** No facial recognition is utilized to scan or track vulnerable homeless populations.
-* **Child Protection Compliance:** Automatic immediate routing of minors to authorized Child Welfare Committees (CWCs) under the Juvenile Justice Act 2015.
-* **Transparency:** All simulated data is clearly labeled with **DEMO DATA** badges to uphold complete research and institutional integrity.
-#   g o o g l e - b u i l d a t h o n - u d a a n -  
- 
+* **Prohibition of Biometrics:** No facial recognition or surveillance is used to track vulnerable individuals.
+* **Child Protection Compliance:** Immediate routing of minors to authorized Child Welfare Committees (CWCs) under the Juvenile Justice Act 2015.
+* **Transparency:** All simulated Bengaluru data is clearly marked as **DEMO DATA**.
